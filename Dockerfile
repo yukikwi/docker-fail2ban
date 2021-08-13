@@ -17,6 +17,7 @@ RUN apk --update --no-cache add \
     tzdata \
     wget \
     whois \
+    tar \
   && apk --update --no-cache add -t build-dependencies \
     build-base \
     py3-pip \
@@ -31,7 +32,10 @@ RUN apk --update --no-cache add \
   && python3 setup.py install \
   && apk del build-dependencies \
   && rm -rf /etc/fail2ban/jail.d /var/cache/apk/* /tmp/* \
-  && cd /usr/src/ \
+  && mkdir /usr \
+  && cd /usr \
+  && mkdir src \
+  && cd src \
   && wget https://download.configserver.com/csf.tgz \
   && tar -xzf csf.tgz \
   && cd csf \
