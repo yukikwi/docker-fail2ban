@@ -32,7 +32,6 @@ RUN apk --update --no-cache add \
   && python3 setup.py install \
   && apk del build-dependencies \
   && rm -rf /etc/fail2ban/jail.d /var/cache/apk/* /tmp/* \
-  && mkdir /usr \
   && cd /usr \
   && mkdir src \
   && cd src \
